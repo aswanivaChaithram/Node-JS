@@ -1,5 +1,7 @@
+// File system module
 const fs = require('fs');
 
+//File read
 fs.readFile('file.txt', 'UTF8', (err, data) => {
     if(err) {
         console.log(err);
@@ -8,6 +10,7 @@ fs.readFile('file.txt', 'UTF8', (err, data) => {
     console.log(data);
 })
 
+//File write
 const content = 'Hello, World!';
 
 fs.writeFile('output.txt', content, (err) => {
@@ -18,6 +21,7 @@ fs.writeFile('output.txt', content, (err) => {
    console.log("fILE WRITTEN SUCCESSFULLY");
 })
 
+// HTTP module
 const http = require('http');
 
 const server = http.createServer((req, res) => {
@@ -30,6 +34,7 @@ server.listen(3000, () => {
     console.log('Server is running at port: 3000');
 })
 
+// PATH module
 const path = require('path');
 
 const directory = '/user/local';
@@ -38,6 +43,8 @@ const fileName = 'example.txt';
 const fullPath = path.join(directory, fileName);
 console.log(fullPath);
 
+
+// OS module
 const os = require('os');
 
 console.log('Platform:', os.platform());
