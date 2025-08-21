@@ -43,7 +43,6 @@ const fileName = 'example.txt';
 const fullPath = path.join(directory, fileName);
 console.log(fullPath);
 
-
 // OS module
 const os = require('os');
 
@@ -51,3 +50,10 @@ console.log('Platform:', os.platform());
 console.log('CPU Architecture:', os.arch());
 console.log('Total Memory:', os.totalmem());
 console.log('Free Memory:', os.freemem());
+
+// Crypto module
+const crpto = require('crypto');
+
+const hash = crpto.createHash('sha256');
+hash.update('Hello World');
+console.log(hash.digest('hex'));
