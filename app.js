@@ -57,3 +57,46 @@ const crpto = require('crypto');
 const hash = crpto.createHash('sha256');
 hash.update('Hello World');
 console.log(hash.digest('hex'));
+
+// Lodash module
+
+// Reverse numbers using lodash
+
+const lodash = require('lodash')
+
+const numbers = [1, 2, 3, 4, 5];
+const reverse = lodash.reverse(numbers);
+console.log(reverse);
+
+
+// Readable streams
+
+const fs = require('fs');
+
+const readableStream = fs.createReadStream('file.txt', 'utf8');
+readableStream.on('data', (chunk) => {
+    console.log(chunk);
+});
+
+readableStream.on("end", () => {
+    console.log("Finished");
+});
+
+readableStream.on('error', (err) => {
+    console.error('Error', err);
+});
+
+// Writable streams
+
+const fs = require('fs');
+
+const writeStream = fs.createWriteStream('file.txt');
+writeStream.write("hello, ");
+writeStream.write("world");
+writeStream.end();
+
+writeStream.on('finish', () => {
+    console.log('finished');
+});
+
+
