@@ -1,4 +1,4 @@
-// File system module
+/* // File system module
 const fs = require('fs');
 
 //File read
@@ -97,6 +97,41 @@ writeStream.end();
 
 writeStream.on('finish', () => {
     console.log('finished');
+}); */
+
+// Piping Streams
+
+/*const fs = require('fs');
+
+const readableStream = fs.createReadStream('output.txt');
+const writableStream = fs.createWriteStream('example-output.txt');
+
+readableStream.pipe(writableStream);
+
+writableStream.on('finish', () => {
+    console.log("File copied successfully");
+}) */
+
+//Perform operations on a large file
+
+const fs = require('fs');
+
+const readline = require('readline');
+
+const readableStream = fs.createReadStream('output.txt');
+
+const r1 = readline.createInterface(
+    {input: readableStream});
+
+r1.on('line', (line) => {
+    console.log("Line: ", line);
 });
+
+r1.on("close", () => {
+    console.log("Finished");
+})
+
+
+
 
 
